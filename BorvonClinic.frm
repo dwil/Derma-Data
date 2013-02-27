@@ -1,129 +1,89 @@
 VERSION 5.00
-Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} BorvonClinic 
-   Caption         =   "Patient Information"
-   ClientHeight    =   13575
+Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} DrBorvonClinic 
+   Caption         =   "UserForm1"
+   ClientHeight    =   13365
    ClientLeft      =   45
    ClientTop       =   345
-   ClientWidth     =   16065
+   ClientWidth     =   13350
    OleObjectBlob   =   "BorvonClinic.frx":0000
    StartUpPosition =   1  'CenterOwner
 End
-Attribute VB_Name = "BorvonClinic"
+Attribute VB_Name = "DrBorvonClinic"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Sub ComboBox1_Change()
 
-
-End Sub
-
-Private Sub ComboBox2_Change()
+Private Sub ExaminationCheckBox_Click()
 
 End Sub
 
-Private Sub ComboBoxDate_Change()
+Private Sub ComboBox4_Change()
 
 End Sub
 
-Private Sub ComboBoxDate2_Change()
+Private Sub DateComboBoxD_Change()
 
 End Sub
 
-Private Sub ComboBoxDate3_Change()
+Private Sub ExaminationCheckBox1_Click()
 
 End Sub
 
-Private Sub ComboBoxMonth_Change()
-
-
+Private Sub Label28_Click()
 
 End Sub
 
-Private Sub ComboBoxMonth_Click()
+Private Sub Label29_Click()
 
 End Sub
 
-
-Private Sub ComboBoxMonth2_Change()
-
-End Sub
-
-Private Sub Label1_Click()
+Private Sub IDTypeComboBox_Change()
 
 End Sub
-
-Private Sub Label12_Click()
-
-End Sub
-
-Private Sub Label13_Click()
-
-End Sub
-
 
 Private Sub Label2_Click()
 
 End Sub
 
-Private Sub Label26_Click()
+Private Sub Label43_Click()
 
 End Sub
 
-Private Sub Label4_Click()
+Private Sub Label48_Click()
 
 End Sub
 
-Private Sub Label8_Click()
+Private Sub Label60_Click()
 
 End Sub
 
-Private Sub ListBox1_Click()
+Private Sub MultiPage1_Change()
 
 End Sub
 
-Private Sub Title()
-
-With Title
-
-    .AddItem "Mr."
-    .AddItem "Mrs."
-    .AddItem "Miss"
-    .AddItem "Junior"
-    .AddItem "Junior Miss"
-    
-End With
+Private Sub OptionButton1_Click()
 
 End Sub
 
-Private Sub NameTitle()
-
-With NameTitle
-    .AddItem "Mr."
-    .AddItem "Mrs."
-    .AddItem "Miss"
-    .AddItem "Junior"
-    .AddItem "Junior Miss"
-    
-End With
+Private Sub NOOptionButton_Click()
 
 End Sub
 
-
-
-
-
+Private Sub TextBox15_Change()
 
 End Sub
 
+Private Sub TitleComboBoxA_Change()
+
+End Sub
 
 Private Sub UserForm_Click()
 
 End Sub
 
-
 Private Sub UserForm_Initialize()
- With TitleComboBox
+ With TitleComboBoxA
     .AddItem "Mr."
     .AddItem "Mrs."
     .AddItem "Ms"
@@ -132,8 +92,7 @@ Private Sub UserForm_Initialize()
     
 End With
 
-
-With ComboBoxDate
+With ComboBoxDateA
     .AddItem "1"
     .AddItem "2"
     .AddItem "3"
@@ -168,7 +127,7 @@ With ComboBoxDate
     
 End With
 
-With ComboBoxMonth
+With ComboBoxMonthA
     .AddItem "January"
     .AddItem "February"
     .AddItem "March"
@@ -185,7 +144,7 @@ With ComboBoxMonth
 End With
     
     
- With ComboBoxDate2
+ With ComboBoxDateB
     .AddItem "1"
     .AddItem "2"
     .AddItem "3"
@@ -220,7 +179,7 @@ End With
     
 End With
 
-With ComboBoxMonth2
+With ComboBoxMonthB
     .AddItem "January"
     .AddItem "February"
     .AddItem "March"
@@ -236,7 +195,7 @@ With ComboBoxMonth2
     
 End With
 
-With ComboBoxDate3
+With ComboBoxDateC
     .AddItem "1"
     .AddItem "2"
     .AddItem "3"
@@ -271,7 +230,7 @@ With ComboBoxDate3
     
 End With
 
-With ComboBoxMonth3
+With ComboBoxMonthC
     .AddItem "January"
     .AddItem "February"
     .AddItem "March"
@@ -287,6 +246,75 @@ With ComboBoxMonth3
     
 End With
     
+'Existing Pation Option
+YESOptionButton2.Value = True
+
+'Charges checkbox option
+ExaminationCheckBox1.Value = False
+
+
+With DateComboBoxD
+    .AddItem "1"
+    .AddItem "2"
+    .AddItem "3"
+    .AddItem "4"
+    .AddItem "5"
+    .AddItem "6"
+    .AddItem "7"
+    .AddItem "8"
+    .AddItem "9"
+    .AddItem "10"
+    .AddItem "11"
+    .AddItem "12"
+    .AddItem "13"
+    .AddItem "14"
+    .AddItem "15"
+    .AddItem "16"
+    .AddItem "17"
+    .AddItem "18"
+    .AddItem "19"
+    .AddItem "20"
+    .AddItem "21"
+    .AddItem "22"
+    .AddItem "23"
+    .AddItem "24"
+    .AddItem "25"
+    .AddItem "26"
+    .AddItem "27"
+    .AddItem "28"
+    .AddItem "29"
+    .AddItem "30"
+    .AddItem "31"
+    
+End With
+
+With MonthComboBoxD
+    .AddItem "January"
+    .AddItem "February"
+    .AddItem "March"
+    .AddItem "April"
+    .AddItem "May"
+    .AddItem "June"
+    .AddItem "July"
+    .AddItem "August"
+    .AddItem "September"
+    .AddItem "October"
+    .AddItem "November"
+    .AddItem "December"
+    
+End With
+
+ With IDTypeComboBox
+    .AddItem "Passport"
+    .AddItem "Thai ID"
+    .AddItem "Driving License"
+    .AddItem "Student ID"
+   
+    
+End With
+
 End Sub
 
+Private Sub YESOptionButton_Click()
 
+End Sub
