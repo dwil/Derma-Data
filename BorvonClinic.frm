@@ -1,10 +1,10 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} DrBorvonClinic 
    Caption         =   "UserForm1"
-   ClientHeight    =   13365
+   ClientHeight    =   13695
    ClientLeft      =   45
    ClientTop       =   345
-   ClientWidth     =   13350
+   ClientWidth     =   13635
    OleObjectBlob   =   "BorvonClinic.frx":0000
    StartUpPosition =   1  'CenterOwner
 End
@@ -19,6 +19,41 @@ Private Sub ExaminationCheckBox_Click()
 End Sub
 
 Private Sub ComboBox4_Change()
+
+End Sub
+
+Private Sub CommandButtonCancel_Click()
+
+End Sub
+
+Private Sub CommandButtonCancel1_Click()
+Unload Me
+End Sub
+
+Private Sub CommandButtonCancel2_Click()
+Unload Me
+End Sub
+
+Private Sub CommandButtonClearForm1_Click()
+Dim cCont As Control
+
+    For Each cCont In Me.MultiPage1.Pages(0).Controls
+        If TypeName(cCont) = "MultiPage" Or TypeName(cCont) = "Label" Or TypeName(cCont) = "Frame" Or TypeName(cCont) = "CommandButton" Then
+        Else
+            cCont.Value = ""
+        End If
+    Next cCont
+    
+    Call UserForm_Initialize
+End Sub
+
+Private Sub CommandButtonClearForm2_Click()
+Call UserForm_Initialize
+End Sub
+
+Private Sub CommandButtonSave1_Click()
+
+
 
 End Sub
 
@@ -318,3 +353,6 @@ End Sub
 Private Sub YESOptionButton_Click()
 
 End Sub
+
+
+
