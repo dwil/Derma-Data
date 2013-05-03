@@ -304,12 +304,22 @@ Public Function SQLite3Initialize(Optional ByVal libDir As String) As Long
 End Function
 
 Public Sub SQLite3Free()
-    If hSQLiteLibrary <> 0 Then
-        FreeLibrary hSQLiteLibrary
-    End If
+Dim Free As Long
+
     If hSQLiteStdCallLibrary <> 0 Then
-        FreeLibrary hSQLiteStdCallLibrary
+        Free = 1
+        Do Until Free = 0
+            Free = FreeLibrary(hSQLiteStdCallLibrary)
+        Loop
     End If
+    
+    If hSQLiteLibrary <> 0 Then
+        Free = 1
+        Do Until Free = 0
+            Free = FreeLibrary(hSQLiteLibrary)
+        Loop
+    End If
+
 End Sub
 
 

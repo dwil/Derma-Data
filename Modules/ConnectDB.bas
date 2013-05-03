@@ -1,14 +1,6 @@
 Attribute VB_Name = "ConnectDB"
 Option Explicit
 
-#If Win64 Then
-    ' These handles are used for accessing the database.
-    ' They need to be public because they will be used by multiple subs.
-    Public myDbHandle As LongPtr, myStmtHandle As LongPtr
-#Else
-    Public myDbHandle As Long, myStmtHandle As Long
-#End If
-
 Sub DBConnect()
 Dim strDBpath As String
 Dim strDBName As String
@@ -20,7 +12,7 @@ Dim a As String
     
     ' If path and name are not present then ask user to select a database.
     If strDBpath = "" Or strDBName = "" Then
-        MsgBox prompt:="There is no link to a database. Please select a database to link to.", _
+        MsgBox Prompt:="There is no link to a database. Please select a database to link to.", _
                Buttons:=vbOKOnly
         strDBpath = ConnectDB.selectDBpath
         
@@ -35,7 +27,7 @@ Dim a As String
     
     
     ConnectDB.initDLL strDBpath:=strDBpath
-    ConnectDB.initDB strDBpath:=strDBpath & strDBName
+    ConnectDB.initDB strDBpath:=strDBpath & "\" & strDBName
 End Sub
 
 Public Sub initDLL(strDBpath As String)
@@ -56,13 +48,14 @@ End Sub
 
 Public Sub initDB(strDBpath As String)
     Dim RetVal As Long
-    RetVal = lib_Sqlite3.SQLite3Open(path_Database, myDbHandle)
+    RetVal = lib_Sqlite3.SQLite3Open(strDBpath, myDbHandle)
 End Sub
 
 Public Sub closeDB(myDbHandle)
     Dim RetVal As Long
     RetVal = lib_Sqlite3.SQLite3Close(myDbHandle)
 End Sub
+
 
 Function selectDBpath()
     selectDBpath = Application.GetOpenFilename("Select Database (*.db3), *.db3", , "Select a database file.")
