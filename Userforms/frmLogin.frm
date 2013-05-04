@@ -16,24 +16,36 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Private Sub btnCancel_Click()
-    CurrentUser.Range("UserID") = ""
-    CurrentUser.Range("Username") = ""
-    CurrentUser.Range("UserValidation") = False
+Dim shtProfile As Worksheet
+
     On Error Resume Next
+        Set shtProfile = Sheets("UserProfiles")
+ 
+        CurrentUser.Range("UserID") = ""
+        CurrentUser.Range("Username") = ""
+        CurrentUser.Range("UserValidation") = False
+    
         Application.DisplayAlerts = False
         shtProfile.Delete
         Application.DisplayAlerts = False
     On Error GoTo 0
+    
     Unload Me
 End Sub
 
+
+Private Sub btnCreateAccount_Click()
+    frmCreateAccount.Show
+End Sub
 
 Private Sub btnOkay_Click()
 Dim shtProfile As Worksheet
 Dim Match As Boolean
 Dim i As Integer
 
+    On Error Resume Next
     Set shtProfile = Sheets("UserProfiles")
+    On Error GoTo 0
     
     'Check if UserProfiles have been extracted from sheet
     If shtProfile Is Nothing Then
@@ -77,13 +89,14 @@ Dim i As Integer
 End Sub
 
 Private Sub UserForm_Initialize()
+Dim spstatus As Boolean
     'Centers the userform on the screen
     
     Me.StartUpPosition = 0
     Me.Left = Application.Left + (Application.Width - Me.Width) / 2
     Me.Top = Application.Top + (Application.Height - Me.Height) / 2
         
-    sql_sp.userprofile_get
+    spstatus = sql_sp.userprofile_get
     
 End Sub
 
